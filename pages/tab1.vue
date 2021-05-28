@@ -13,7 +13,7 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="200px"
           >
-            <v-card-title v-text="card.title"></v-card-title>
+            <v-card-title v-text="card.title" class="card-tit"></v-card-title>
           </v-img>
 
           <v-card-actions>
@@ -98,14 +98,20 @@ export default {
   data() {
     return {
       cards: [
-        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-        { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
-        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-        { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 }
+        { title: '아리따움 ‘모노아이즈 팔레트’', src: '/images/banner1.PNG', flex: 12 },
+        { title: '안티에이징 장인 미샤!', src: '/images/banner2.jpg', flex: 6 },
+        { title: '한층 짙어진 자연주의 디자인 이니스프리', src: '/images/banner3.jpg', flex: 6 },
+        { title: '마녀공장 실속세트를 득템하라!', src: '/images/banner4.png', flex: 12 },
+        { title: '아리따움 ‘모노아이즈 팔레트2’', src: '/images/banner1.PNG', flex: 6 },
+        { title: '안티에이징 장인 미샤!2', src: '/images/banner2.jpg', flex: 6 }
       ]
     }
   }
 }
 </script>
+<style scoped>
+.card-tit {
+  font-size: 0.9rem;
+  line-height: 1rem;
+}
+</style>

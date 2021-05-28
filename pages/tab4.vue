@@ -7,7 +7,7 @@
         class="mb-5"
       >
       <blockquote class="blockquote">
-        &#8220;tip&#8221;
+        &#8220;new&#8221;
         <footer>
           <small>
             <em>&mdash;John Johnson</em>
