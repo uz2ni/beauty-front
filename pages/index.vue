@@ -85,5 +85,6 @@ export default {
     Logo,
     VuetifyLogo
   }
+  //TODO: router tab1 이동
 }
 </script>
