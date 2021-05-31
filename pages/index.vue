@@ -84,7 +84,9 @@ export default {
   components: {
     Logo,
     VuetifyLogo
+  },
+  beforeRouteEnter(to, from, next) {
+    next('/tab1');
   }
-  //TODO: router tab1 이동
 }
 </script>

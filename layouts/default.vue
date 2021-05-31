@@ -74,22 +74,22 @@ export default {
       tabs: [
         {
           id: 1,
-          name: 'HOME',
+          name: 'NEW',
           route: 'tab1'
         },
         {
           id: 2,
-          name: 'TESTER',
+          name: '체험단',
           route: 'tab2'
         },
         {
           id: 3,
-          name: 'TIP',
+          name: '콘텐츠',
           route: 'tab3'
         },
         {
           id: 4,
-          name: 'NEW',
+          name: 'SHOP',
           route: 'tab4'
         }
       ],
