@@ -10,7 +10,7 @@
         &#8220;tip&#8221;
         <footer>
           <small>
-            <em>&mdash;John Johnson</em>
+            <em>흠....</em>
           </small>
         </footer>
       </blockquote>
