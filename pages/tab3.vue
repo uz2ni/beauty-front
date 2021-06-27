@@ -8,7 +8,7 @@
       >
         <a :href="banner.landingUrl"><v-card class="my-1">
           <v-img
-            src="/images/price-banner-01.png"
+            :src="banner.image.filePath"
             class="white--text align-center"
             height="100px"
           >
@@ -25,6 +25,7 @@
 export default {
   async asyncData ({ app, params }) {
     const { data } = await app.$axios.$get('price-banner')
+    console.log(data.priceBanners[0].image);
     return { banners: data.priceBanners }
   }
 }

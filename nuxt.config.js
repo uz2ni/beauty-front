@@ -45,7 +45,7 @@ export default {
 
   axios: {
     // 모듈 설정
-    baseURL: process.env.BASE_URL || 'https://it-event-back.herokuapp.com/' || 'http://localhost:8080/'
+    baseURL: process.env.BASE_URL || 'http://localhost:8080/'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
