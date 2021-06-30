@@ -134,7 +134,8 @@ export default {
   },
   methods: {
     updateRoute (route) {
-      this.$router.push({ path: route })
+      console.log(route);
+      this.$router.push({ path: `/${route}` })
     }
   }
 }
