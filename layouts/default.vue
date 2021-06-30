@@ -70,23 +70,18 @@ export default {
       tabs: [
         {
           id: 1,
-          name: 'NEW',
+          name: '브랜드 소개',
           route: 'tab1'
         },
         {
           id: 2,
-          name: '체험단',
+          name: '행사',
           route: 'tab2'
         },
         {
           id: 3,
-          name: '콘텐츠',
+          name: '샵',
           route: 'tab3'
-        },
-        {
-          id: 4,
-          name: 'SHOP',
-          route: 'tab4'
         }
       ],
       /* bottom-navigation */
