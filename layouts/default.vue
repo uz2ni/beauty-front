@@ -140,14 +140,14 @@ export default {
   height: 100%;
 }
 .bottom-btn {
-  background-color: transparent;
+  background-color: transparent !important;
   border-radius: 0;
   box-shadow: none;
   flex: 0 1 auto;
   font-size: 0.75rem;
-  height: inherit;
+  height: inherit !important;
   max-width: 168px;
-  min-width: 80px;
+  min-width: 80px !important;
   position: relative;
   text-transform: none;
   /*color: rgba(0, 0, 0, 0.6) !important;*/
