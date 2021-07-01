@@ -48,7 +48,7 @@
       v-model="value"
       color="blue darken-4"
     >
-      <v-btn v-for="nav in bottomNav" :key="nav.id">
+      <v-btn v-for="nav in bottomNav" :key="nav.id" class="bottom-btn">
         <span>{{ nav.name }}</span>
         <v-icon>{{ nav.icon }}</v-icon>
       </v-btn>
@@ -138,5 +138,18 @@ export default {
 <style scoped>
 .h-100 {
   height: 100%;
+}
+.bottom-btn {
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  flex: 0 1 auto;
+  font-size: 0.75rem;
+  height: inherit;
+  max-width: 168px;
+  min-width: 80px;
+  position: relative;
+  text-transform: none;
+  /*color: rgba(0, 0, 0, 0.6) !important;*/
 }
 </style>
