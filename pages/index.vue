@@ -86,7 +86,7 @@ export default {
     VuetifyLogo
   },
   beforeRouteEnter(to, from, next) {
-    next('/tab1');
+    next('/nav1/tab1');
   }
 }
 </script>

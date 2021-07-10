@@ -45,10 +45,10 @@
 
     <v-bottom-navigation
       fixed
-      v-model="value"
+      v-model="bottomNavValue"
       color="blue darken-4"
     >
-      <v-btn v-for="nav in bottomNav" :key="nav.id" class="bottom-btn">
+      <v-btn v-for="nav in bottomNav" :key="nav.id" class="bottom-btn" @click="bottomNavUpdate(nav)">
         <span>{{ nav.name }}</span>
         <v-icon>{{ nav.icon }}</v-icon>
       </v-btn>
@@ -64,25 +64,25 @@ export default {
       clipped: false,
       fixed: false,
       title: 'BEAUTY',
-      value: 1,
+      bottomNavValue: 0,
       /* top-tab */
       selectedTab: 0,
       tabs: [
-        {
-          id: 1,
-          name: '브랜드 소개',
-          route: 'tab1'
-        },
-        {
-          id: 2,
-          name: '행사',
-          route: 'tab2'
-        },
-        {
-          id: 3,
-          name: '샵',
-          route: 'tab3'
-        }
+          {
+            id: 1,
+            name: '브랜드 소개',
+            route: 'nav1/tab1'
+          },
+          {
+            id: 2,
+            name: '행사',
+            route: 'nav1/tab2'
+          },
+          {
+            id: 3,
+            name: '샵',
+            route: 'nav1/tab3'
+          }
       ],
       /* bottom-navigation */
       bottomNav: [
@@ -90,7 +90,7 @@ export default {
           id: 1,
           name: '홈',
           icon: 'mdi-home',
-          route: 'tab1'
+          route: 'nav1/tab1'
         },
         {
           id: 2,
@@ -125,12 +125,10 @@ export default {
     // Set that tab as 'selectedTab'
     const tabIndex = this.tabs.findIndex(tab => tab.route === this.$route.name)
     this.selectedTab = tabIndex
-    console.log(tabIndex);
   },
   methods: {
-    updateRoute (route) {
-      console.log(route);
-      this.$router.push({ path: `/${route}` })
+    bottomNavUpdate(nav) {
+      this.$router.push({ path: `/${nav.route}` })
     }
   }
 }
