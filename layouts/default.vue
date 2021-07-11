@@ -23,8 +23,9 @@
           fixed-tabs
           centered
           slider-color="white"
+          v-model="nowTabs.id"
         >
-          <v-tab v-for="tab in nowTabs" :key="tab.id" @click="updateRoute(tab.route)" class="white--text">{{ tab.name }}</v-tab>
+          <v-tab v-for="tab in nowTabs" :key="tab.id" @click="updateRoute(tab)" class="white--text">{{ tab.name }}</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
@@ -44,10 +45,10 @@
 
     <v-bottom-navigation
       fixed
-      v-model="bottomNavValue"
+      v-model="gnbValue"
       color="blue darken-4"
     >
-      <v-btn v-for="nav in bottomNav" :key="nav.id" class="bottom-btn" @click="bottomNavUpdate(nav)">
+      <v-btn v-for="nav in gnb" :key="nav.id" class="bottom-btn" @click="updateRoute(nav)">
         <span>{{ nav.name }}</span>
         <v-icon>{{ nav.icon }}</v-icon>
       </v-btn>
@@ -63,11 +64,9 @@ export default {
       clipped: false,
       fixed: false,
       title: 'BEAUTY',
-      bottomNavValue: 0,
-      /* top-tab */
-      //selectedTab: 0,
-      /* bottom-navigation */
-      bottomNav: [
+      gnbValue: 0,
+      /* gnb */
+      gnb: [
         {
           id: 1,
           name: '홈',
@@ -75,17 +74,17 @@ export default {
           route: 'nav1/tab1',
           tabs: [
             {
-              id: 1,
+              id: 11,
               name: '브랜드 소개',
               route: 'nav1/tab1'
             },
             {
-              id: 2,
+              id: 12,
               name: '행사',
               route: 'nav1/tab2'
             },
             {
-              id: 3,
+              id: 13,
               name: '샵',
               route: 'nav1/tab3'
             }
@@ -93,26 +92,9 @@ export default {
         },
         {
           id: 2,
-          name: '이벤트',
-          icon: 'mdi-gift-outline',
-          route: 'tab1',
-          tabs: [
-            {
-              id: 1,
-              name: '브랜드 소개2',
-              route: 'nav1/tab1'
-            },
-            {
-              id: 2,
-              name: '행사2',
-              route: 'nav1/tab2'
-            },
-            {
-              id: 3,
-              name: '샵2',
-              route: 'nav1/tab3'
-            }
-          ]
+          name: '스토어',
+          icon: 'mdi-store',
+          route: 'tab1'
         },
         {
           id: 3,
@@ -122,9 +104,21 @@ export default {
         },
         {
           id: 4,
-          name: '스토어',
-          icon: 'mdi-store',
-          route: 'tab1'
+          name: '구독',
+          icon: 'mdi-heart',
+          route: 'nav2/tab1',
+          tabs: [
+            {
+              id: 41,
+              name: '내 브랜드',
+              route: 'nav2/tab1'
+            },
+            {
+              id: 42,
+              name: '찜한 상품',
+              route: 'nav2/tab2'
+            }
+          ]
         },
         {
           id: 5,
@@ -135,26 +129,14 @@ export default {
       ]
     }
   },
-  mounted() {
-    // Get current route name
-    // Find the tab with the same route (property value)
-    // Set that tab as 'selectedTab'
-    //const tabIndex = this.tabs.findIndex(tab => tab.route === this.$route.name)
-    //this.selectedTab = tabIndex
-  },
   computed: {
     nowTabs: function() {
-      this.bottomNav.filter((value, index) => {
-        if(this.bottomNavValue == index) {
-          console.log(value.tabs);
-          return value.tabs;
-        }
-
-      });
+      return this.gnb.find((value, index) => this.gnbValue == index).tabs;
     }
   },
   methods: {
-    bottomNavUpdate(nav) {
+    updateRoute(nav) {
+      nav.nowTabId =
       this.$router.push({ path: `/${nav.route}` })
     }
   }
