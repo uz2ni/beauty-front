@@ -23,9 +23,8 @@
           fixed-tabs
           centered
           slider-color="white"
-          v-model="selectedTab"
         >
-          <v-tab v-for="tab in tabs" :key="tab.id" @click="updateRoute(tab.route)" class="white--text">{{ tab.name }}</v-tab>
+          <v-tab v-for="tab in nowTabs" :key="tab.id" @click="updateRoute(tab.route)" class="white--text">{{ tab.name }}</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
@@ -66,37 +65,54 @@ export default {
       title: 'BEAUTY',
       bottomNavValue: 0,
       /* top-tab */
-      selectedTab: 0,
-      tabs: [
-          {
-            id: 1,
-            name: '브랜드 소개',
-            route: 'nav1/tab1'
-          },
-          {
-            id: 2,
-            name: '행사',
-            route: 'nav1/tab2'
-          },
-          {
-            id: 3,
-            name: '샵',
-            route: 'nav1/tab3'
-          }
-      ],
+      //selectedTab: 0,
       /* bottom-navigation */
       bottomNav: [
         {
           id: 1,
           name: '홈',
           icon: 'mdi-home',
-          route: 'nav1/tab1'
+          route: 'nav1/tab1',
+          tabs: [
+            {
+              id: 1,
+              name: '브랜드 소개',
+              route: 'nav1/tab1'
+            },
+            {
+              id: 2,
+              name: '행사',
+              route: 'nav1/tab2'
+            },
+            {
+              id: 3,
+              name: '샵',
+              route: 'nav1/tab3'
+            }
+          ]
         },
         {
           id: 2,
           name: '이벤트',
           icon: 'mdi-gift-outline',
-          route: 'tab1'
+          route: 'tab1',
+          tabs: [
+            {
+              id: 1,
+              name: '브랜드 소개2',
+              route: 'nav1/tab1'
+            },
+            {
+              id: 2,
+              name: '행사2',
+              route: 'nav1/tab2'
+            },
+            {
+              id: 3,
+              name: '샵2',
+              route: 'nav1/tab3'
+            }
+          ]
         },
         {
           id: 3,
@@ -123,8 +139,19 @@ export default {
     // Get current route name
     // Find the tab with the same route (property value)
     // Set that tab as 'selectedTab'
-    const tabIndex = this.tabs.findIndex(tab => tab.route === this.$route.name)
-    this.selectedTab = tabIndex
+    //const tabIndex = this.tabs.findIndex(tab => tab.route === this.$route.name)
+    //this.selectedTab = tabIndex
+  },
+  computed: {
+    nowTabs: function() {
+      this.bottomNav.filter((value, index) => {
+        if(this.bottomNavValue == index) {
+          console.log(value.tabs);
+          return value.tabs;
+        }
+
+      });
+    }
   },
   methods: {
     bottomNavUpdate(nav) {
