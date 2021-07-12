@@ -92,9 +92,16 @@ export default {
         },
         {
           id: 2,
-          name: '스토어',
+          name: '브랜드',
           icon: 'mdi-store',
-          route: 'tab1'
+          route: 'nav2/tab1',
+          tabs: [
+            {
+              id: 21,
+              name: '브랜드 목록',
+              route: 'nav2/tab1'
+            }
+          ]
         },
         {
           id: 3,
@@ -106,17 +113,17 @@ export default {
           id: 4,
           name: '구독',
           icon: 'mdi-heart',
-          route: 'nav2/tab1',
+          route: 'nav4/tab1',
           tabs: [
             {
               id: 41,
               name: '내 브랜드',
-              route: 'nav2/tab1'
+              route: 'nav4/tab1'
             },
             {
               id: 42,
               name: '찜한 상품',
-              route: 'nav2/tab2'
+              route: 'nav4/tab2'
             }
           ]
         },
