@@ -69,30 +69,30 @@ export default {
       gnb: [
         {
           id: 1,
-          name: '홈',
-          icon: 'mdi-home',
-          route: 'nav1/tab1',
+          name: '제품별',
+          icon: 'mdi-shape',
+          route:'nav1/tab1',
           tabs: [
             {
               id: 11,
-              name: '브랜드 소개',
+              name: '전체',
               route: 'nav1/tab1'
             },
             {
               id: 12,
-              name: '행사',
+              name: '베스트',
               route: 'nav1/tab2'
             },
             {
               id: 13,
-              name: '샵',
+              name: '신제품',
               route: 'nav1/tab3'
             }
           ]
         },
         {
           id: 2,
-          name: '브랜드',
+          name: '브랜드별',
           icon: 'mdi-store',
           route: 'nav2/tab1',
           tabs: [
@@ -105,9 +105,26 @@ export default {
         },
         {
           id: 3,
-          name: '포스트',
-          icon: 'mdi-text-box-outline',
-          route: 'tab1'
+          name: '홈',
+          icon: 'mdi-home',
+          route: 'nav3/tab1',
+          tabs: [
+            {
+              id: 31,
+              name: '브랜드 소개',
+              route: 'nav3/tab1'
+            },
+            {
+              id: 32,
+              name: '행사',
+              route: 'nav3/tab2'
+            },
+            {
+              id: 33,
+              name: '샵',
+              route: 'nav3/tab3'
+            }
+          ]
         },
         {
           id: 4,
@@ -143,7 +160,6 @@ export default {
   },
   methods: {
     updateRoute(nav) {
-      nav.nowTabId =
       this.$router.push({ path: `/${nav.route}` })
     }
   }

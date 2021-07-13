@@ -38,19 +38,29 @@
 
 <script>
 export default {
-  name: "brand",
 
-  async asyncData ({ app, params }) {
-    console.log("params:");
-    console.log(params);
-    const { data } = await app.$axios.$get(`shop/${params.id}/products`)
-    return { products: data.products }
+  // async asyncData ({ app, params }) {
+  //   console.log("params:");
+  //   console.log(params);
+  //   const { data } = await app.$axios.$get(`shop/${params.id}/products`)
+  //   return { products: data.products }
+  // },
+  data() {
+    return {
+      products: [
+        {
+          "title" : "제품명1",
+          "price" : 10000,
+          "salePrice" : 9000,
+          "detailUrl" : "http://naver.com",
+          "thumbUrl" : "/images/price-banner-01.png"
+        }
+      ]
+    }
   },
-
   created() {
     console.log(this.products);
   },
-
   filters:{
     comma(val){
       return String(val).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
