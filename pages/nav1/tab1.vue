@@ -11,6 +11,7 @@
           v-for="(banner, i) in banners"
           :key="i"
           :src="banner.src"
+          :href="banner.landingUrl"
         >
         </v-carousel-item>
       </v-carousel>
