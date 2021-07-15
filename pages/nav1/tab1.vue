@@ -1,35 +1,21 @@
 <template>
   <div>
-    <v-row>
-      <v-carousel
-        cycle
-        height="25vh"
-        hide-delimiter-background
-        :show-arrows="false"
-      >
-        <v-carousel-item
-          v-for="(banner, i) in banners"
-          :key="i"
-          :src="banner.src"
-          :href="banner.landingUrl"
-        >
-        </v-carousel-item>
-      </v-carousel>
-    </v-row>
-
+    <TopBanner :banners="bannerItems"/>
     <ProductList :products="productItems"/>
   </div>
 </template>
 
 <script>
 import ProductList from "@/components/productList";
+import TopBanner from "@/components/topBanner";
 export default {
   components: {
-    ProductList
+    ProductList,
+    TopBanner
   },
   data() {
     return {
-      banners: [
+      bannerItems: [
         {
           "id" : 1,
           "title" : "banner1",
@@ -48,7 +34,6 @@ export default {
           "landingUrl": "https://moremofam.co.kr/product/%EB%AA%A8%EB%A0%88%EB%AA%A8-%ED%97%A4%EC%96%B4-%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8-%EB%AF%B8%EB%9D%BC%ED%81%B4-2x-%EB%9F%AC%EB%B8%8C-%EC%97%90%EB%94%94%EC%85%98-480ml-%EB%8C%80%EC%9A%A9%EB%9F%89/80/category/24/display/1/"
         }
       ],
-
       productItems: [
         {
           "id": 1,
@@ -98,15 +83,4 @@ export default {
 }
 </script>
 <style scoped>
-/* slide banner custom */
-::v-deep .v-carousel__controls > div > button{
-  margin: 0;
-  width: 17px;
-  height: 17px;
-}
-::v-deep .v-carousel__controls > div > button > span > i {
-  font-size: 10px !important;
-}
-
-
 </style>
