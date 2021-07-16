@@ -7,7 +7,7 @@
 
 <script>
 import ProductList from "@/components/productList";
-import TopBanner from "@/components/topBanner";
+import TopBanner from "@/components/banners/topBanner";
 export default {
   components: {
     ProductList,
