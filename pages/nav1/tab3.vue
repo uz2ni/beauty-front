@@ -1,117 +1,74 @@
 <template>
-  <v-container fluid>
-    <v-row dense>
-      <v-col
-        v-for="card in cards"
-        :key="card.title"
-        :cols="card.flex"
-      >
-        <v-card>
-          <v-img
-            :src="card.src"
-            class="white--text align-end"
-            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-            height="200px"
-          >
-            <v-card-title v-text="card.title" class="card-tit"></v-card-title>
-          </v-img>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-
-            <v-btn icon>
-              <v-icon>mdi-heart</v-icon>
-            </v-btn>
-
-            <v-btn icon>
-              <v-icon>mdi-bookmark</v-icon>
-            </v-btn>
-
-            <v-btn icon>
-              <v-icon>mdi-share-variant</v-icon>
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
-
-    <v-row>
-      <v-col>
-        <v-card
-          class="mx-auto"
-          color="#26c6da"
-          dark
-          max-width="400"
-        >
-          <v-card-title>
-            <v-icon
-              large
-              left
-            >
-              mdi-twitter
-            </v-icon>
-            <span class="title font-weight-light">Twitter</span>
-          </v-card-title>
-
-          <v-card-text class="headline font-weight-bold">
-            "Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."
-          </v-card-text>
-
-          <v-card-actions>
-            <v-list-item class="grow">
-              <v-list-item-avatar color="grey darken-3">
-                <v-img
-                  class="elevation-6"
-                  alt=""
-                  src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
-                ></v-img>
-              </v-list-item-avatar>
-
-              <v-list-item-content>
-                <v-list-item-title>Evan You</v-list-item-title>
-              </v-list-item-content>
-
-              <v-row
-                align="center"
-                justify="end"
-              >
-                <v-icon class="mr-1">
-                  mdi-heart
-                </v-icon>
-                <span class="subheading mr-2">256</span>
-                <span class="mr-1">·</span>
-                <v-icon class="mr-1">
-                  mdi-share-variant
-                </v-icon>
-                <span class="subheading">45</span>
-              </v-row>
-            </v-list-item>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div>
+    <MessageStack/>
+    <RowLine/>
+    <v-row class="pl-4 pt-4"><h4 class="stack-title">내 취향 브랜드와 비슷한 신제품 💄</h4></v-row>
+    <ProductList :products="productItems"/>
+  </div>
 </template>
 
 <script>
+import MessageStack from "@/components/utils/messageStack";
+import RowLine from "@/components/utils/rowLine";
+import ProductList from "../../components/productList";
 export default {
+  components: {
+    ProductList,
+    MessageStack,
+    RowLine
+  },
   data() {
     return {
-      cards: [
-        { title: '아리따움 ‘모노아이즈 팔레트’', src: '/images/banner1.jpg', flex: 12 },
-        { title: '안티에이징 장인 미샤!', src: '/images/banner2.jpg', flex: 6 },
-        { title: '한층 짙어진 자연주의 디자인 이니스프리', src: '/images/banner3.jpg', flex: 6 },
-        { title: '마녀공장 실속세트를 득템하라!', src: '/images/banner4.jpg', flex: 12 },
-        { title: '아리따움 ‘모노아이즈 팔레트2’', src: '/images/banner1.jpg', flex: 6 },
-        { title: '안티에이징 장인 미샤!2', src: '/images/banner2.jpg', flex: 6 }
+      productItems: [
+        {
+          "id": 1,
+          "title": "그린 마일드 업 선 플러스 50ml",
+          "price": 21000,
+          "landingUrl": "https://www.dr-g.co.kr/shop/goods/goods_view.php?goodsno=3797&category=014007",
+          "shopName" : "닥터지"
+        },
+        {
+          "id": 2,
+          "title": "노세범 미네랄 파우더 + 노세범 픽싱 피니시 파우더 5g",
+          "price": 15400,
+          "landingUrl": "https://www.innisfree.com/kr/ko/ProductView.do?prdSeq=29996&catCd01=&catCd02=&tp=",
+          "shopName" : "이니스프리"
+        },
+        {
+          "id": 3,
+          "title": "모레모 헤어 트리트먼트 미라클 2X 480ML 대용량",
+          "price": 27300,
+          "landingUrl": "https://moremofam.co.kr/product/%EB%AA%A8%EB%A0%88%EB%AA%A8-%ED%97%A4%EC%96%B4-%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8-%EB%AF%B8%EB%9D%BC%ED%81%B4-2x-%EB%9F%AC%EB%B8%8C-%EC%97%90%EB%94%94%EC%85%98-480ml-%EB%8C%80%EC%9A%A9%EB%9F%89/80/category/24/display/1/",
+          "shopName" : "모레모"
+        },
+        {
+          "id": 4,
+          "title": "그린 마일드 업 선 플러스 50ml",
+          "price": 21000,
+          "landingUrl": "https://www.dr-g.co.kr/shop/goods/goods_view.php?goodsno=3797&category=014007",
+          "shopName" : "닥터지"
+        },
+        {
+          "id": 5,
+          "title": "노세범 미네랄 파우더 + 노세범 픽싱 피니시 파우더 5g",
+          "price": 15400,
+          "landingUrl": "https://www.innisfree.com/kr/ko/ProductView.do?prdSeq=29996&catCd01=&catCd02=&tp=",
+          "shopName" : "이니스프리"
+        },
+        {
+          "id": 6,
+          "title": "모레모 헤어 트리트먼트 미라클 2X 480ML 대용량",
+          "price": 27300,
+          "landingUrl": "https://moremofam.co.kr/product/%EB%AA%A8%EB%A0%88%EB%AA%A8-%ED%97%A4%EC%96%B4-%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8-%EB%AF%B8%EB%9D%BC%ED%81%B4-2x-%EB%9F%AC%EB%B8%8C-%EC%97%90%EB%94%94%EC%85%98-480ml-%EB%8C%80%EC%9A%A9%EB%9F%89/80/category/24/display/1/",
+          "shopName" : "모레모"
+        }
       ]
     }
   }
 }
 </script>
 <style scoped>
-.card-tit {
-  font-size: 0.9rem;
-  line-height: 1rem;
+.stack-title {
+  color: #616161;
 }
 </style>
