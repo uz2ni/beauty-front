@@ -7,19 +7,12 @@
       fixed
       app
     >
-      <v-container class="ma-0 pa-0">
-        <v-row
-          no-gutters
-        >
-          <v-col cols="12" class="d-flex align-center justify-center">
-            <v-toolbar-title v-text="title" class="text-center" style="color: white;"/>
-          </v-col>
-        </v-row>
-      </v-container>
+      <TopBar/>
+
 
       <template v-slot:extension>
         <v-tabs
-          class="tab-menu"
+          class="tab-menu px-0"
           fixed-tabs
           centered
           slider-color="white"
@@ -58,12 +51,15 @@
 </template>
 
 <script>
+import TopBar from "@/components/topBar";
 export default {
+  components: {
+    TopBar
+  },
   data () {
     return {
       clipped: false,
       fixed: false,
-      title: 'BEAUTY',
       gnbValue: 0,
       /* gnb */
       gnb: [

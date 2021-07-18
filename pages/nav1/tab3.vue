@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import MessageStack from "@/components/utils/messageStack";
-import RowLine from "@/components/utils/rowLine";
+import MessageStack from "@/components/grid/messageStack";
+import RowLine from "@/components/grid/rowLine";
 import ProductList from "../../components/productList";
 export default {
   components: {

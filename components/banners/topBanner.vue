@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row class="no-gutters">
     <v-carousel
       cycle
       height="25vh"
