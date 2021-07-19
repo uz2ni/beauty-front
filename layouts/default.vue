@@ -144,7 +144,14 @@ export default {
           id: 5,
           name: 'MY',
           icon: 'mdi-account-box',
-          route: 'tab1'
+          route: 'nav5/tab1',
+          tabs: [
+            {
+              id: 51,
+              name: '마이페이지',
+              route: 'nav5/tab1'
+            }
+          ]
         }
       ]
     }

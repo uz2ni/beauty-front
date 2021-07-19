@@ -1,8 +1,8 @@
 <template>
   <div class="tbar-wrap">
-    <div>logo/Title</div>
-    <div>searchBar</div>
-    <div>iconBar</div>
+    <AppSubject/>
+    <SearchBar/>
+    <IconBar/>
   </div>
     <!--<v-row
       no-gutters
@@ -20,8 +20,14 @@
 </template>
 
 <script>
+import AppSubject from "@/components/topBar/appSubject";
+import SearchBar from "@/components/topBar/searchBar";
+import IconBar from "@/components/topBar/iconBar";
 export default {
   name: "topBar",
+  components: {
+    AppSubject, SearchBar, IconBar
+  },
   data() {
     return {
     }
@@ -39,7 +45,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.tbar-wrap > div {
-  border: 1px solid black;
+.tbar-wrap > * {
+  /*border: 1px solid black;*/
 }
 </style>
