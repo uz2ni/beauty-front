@@ -54,5 +54,4 @@ export default {
 ::v-deep .v-chip--active .v-chip__content {
   color: white;
 }
-
 </style>
