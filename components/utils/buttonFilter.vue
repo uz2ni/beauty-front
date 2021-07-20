@@ -27,13 +27,15 @@ export default {
   name: "ButtonFilter",
   data() {
     return {
-      tagSelected: 0,
-      multiple: ''
+      tagSelected: null
     }
   },
   props: {
     tags: Array,
     isMultiple: Boolean
+  },
+  created() {
+    (this.isMultiple === true) ? this.tagSelected = [0] : this.tagSelected = 0;
   }
 }
 </script>

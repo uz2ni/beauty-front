@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: "productList",
+  name: "cardList",
   data() {
     return {
       likeProduct: [1,2] // product id

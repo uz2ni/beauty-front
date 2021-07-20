@@ -13,7 +13,4 @@
   </v-row>
 </template>
 <style scoped>
-.h-100 {
-  height: 100%;
-}
 </style>

@@ -1,16 +1,16 @@
 <template>
   <div>
     <TopBanner :banners="bannerItems"/>
-    <ProductList :products="productItems"/>
+    <CardList :products="productItems"/>
   </div>
 </template>
 
 <script>
-import ProductList from "@/components/productList";
+import CardList from "@/components/grid/cardList";
 import TopBanner from "@/components/banners/topBanner";
 export default {
   components: {
-    ProductList,
+    CardList,
     TopBanner
   },
   data() {

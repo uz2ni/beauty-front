@@ -2,18 +2,18 @@
   <div>
     <ListFilter/>
     <ButtonFilter :tags="tagList" :isMultiple="false"/>
-    <ProductList :products="productItems"/>
+    <CardList :products="productItems"/>
   </div>
 </template>
 <script>
 import ListFilter from "@/components/utils/listFilter";
 import ButtonFilter from "@/components/utils/buttonFilter";
-import ProductList from "@/components/productList";
+import CardList from "@/components/grid/cardList";
 export default {
   components: {
     ListFilter,
     ButtonFilter,
-    ProductList
+    CardList
   },
   data() {
     return {
