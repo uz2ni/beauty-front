@@ -1,7 +1,7 @@
 <template>
   <div>
     <ListFilter/>
-    <ButtonFilter/>
+    <ButtonFilter :tags="tagList" :isMultiple="false"/>
     <ProductList :products="productItems"/>
   </div>
 </template>
@@ -17,6 +17,14 @@ export default {
   },
   data() {
     return {
+      tagList: [
+        '전체',
+        '10대',
+        '20대',
+        '30대',
+        '40대',
+        '50대'
+      ],
       productItems: [
         {
           "id": 1,

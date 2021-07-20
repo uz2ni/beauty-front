@@ -15,5 +15,6 @@ export default {
   display: flex;
   align-items: center;
   color: white;
+  padding: 4px;
 }
 </style>

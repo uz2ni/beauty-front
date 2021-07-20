@@ -1,26 +1,6 @@
 <template>
   <div>
-    <v-row>
-      <v-col
-        cols="12" class="pt-4"
-      >
-        <v-sheet>
-          <v-chip-group
-            multiple
-            active-class="primary--text"
-            v-model="tagSelected"
-          >
-            <v-chip
-              v-for="tag in tags"
-              :key="tag"
-              class="tag-wrap"
-            >
-              {{ tag }}
-            </v-chip>
-          </v-chip-group>
-        </v-sheet>
-      </v-col>
-    </v-row>
+    <buttonFilter :tags="tagList" :isMultiple="true" class="mt-1"/>
 
     <v-row class="my-0">
       <v-col cols="12">
@@ -80,7 +60,11 @@
 </template>
 
 <script>
+import ButtonFilter from "@/components/utils/buttonFilter";
 export default {
+  components: {
+    ButtonFilter
+  },
   data() {
     return {
       selected: [],
@@ -147,7 +131,7 @@ export default {
         },
       ],
       tagSelected: [0],
-      tags: [
+      tagList: [
         '전체',
         '스킨케어',
         '썬케어',

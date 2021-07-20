@@ -185,4 +185,7 @@ export default {
   text-transform: none;
   /*color: rgba(0, 0, 0, 0.6) !important;*/
 }
+::v-deep .v-toolbar__content {
+  padding: 4px;
+}
 </style>

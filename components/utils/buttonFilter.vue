@@ -7,6 +7,7 @@
         <v-chip-group
           active-class="primary--text"
           v-model="tagSelected"
+          :multiple="isMultiple"
         >
           <v-chip
             v-for="(tag, index) in tags"
@@ -27,15 +28,12 @@ export default {
   data() {
     return {
       tagSelected: 0,
-      tags: [
-        '전체',
-        '10대',
-        '20대',
-        '30대',
-        '40대',
-        '50대'
-      ]
+      multiple: ''
     }
+  },
+  props: {
+    tags: Array,
+    isMultiple: Boolean
   }
 }
 </script>
