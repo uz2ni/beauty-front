@@ -84,7 +84,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  fetchLike(state, {id}) {
+  fetchLike(state, id) {
     console.log(id);
     const idx = state.shopList.findIndex(shop => (shop.id === id));
     if(idx !== undefined) {
@@ -95,8 +95,10 @@ export const mutations = {
 }
 
 export const actions = {
-  updateLike({ commit }, shop) {
-    commit('fetchLike', shop);
+  updateLike({ commit }, id) {
+    commit('fetchLike', id);
+    // 업데디트 호출
+    // 리로드?
   }
 }
 
@@ -106,14 +108,5 @@ export const getters = {
   },
   getLikeShops: state => {
     return state.shopList.filter(shop => shop.like);
-  },
-  getLikeIndex: state => {
-    const result = state.shopList.reduce((pre, value, index) => {
-      if (value.like === true) {
-        pre.push(index);
-      }
-      return pre;
-    }, []);
-    return result;
   }
 }

@@ -4,12 +4,10 @@
       <div>
         <v-list two-line class="py-0">
           <v-list-item-group
-            v-model="selected"
             active-class="primary--text"
-            multiple
           >
             <template v-for="(item, index) in items">
-              <v-list-item :key="item.title" class="list-item-wrap" @click="updateSelected(item)">
+              <v-list-item :key="item.title" class="list-item-wrap">
                 <template v-slot:default="{ active }">
                   <v-list-item-content class="list-content-wrap flex-nowrap py-0">
                     <div class="item-idx">{{ index+1 }}</div>
@@ -22,9 +20,9 @@
                     </div>
                   </v-list-item-content>
 
-                  <v-list-item-action class="item-action">
+                  <v-list-item-action class="item-action" @click="updateSelected(item.id)">
                     <v-icon
-                      v-if="!active"
+                      v-if="!item.like"
                       color="grey lighten-1"
                     >
                       mdi-heart-outline
@@ -60,21 +58,9 @@ export default {
   props: {
     items: Array
   },
-  computed: {
-    selected: {
-      get: function() {
-        return this.selected = this.$store.getters['shop/getLikeIndex'];
-      }
-      // set: function(shop) {
-      //   this.selected = this.$store.commit('shop/fetchLike', shop);
-      //   // TODO(Question):
-      //   // set할 때 dispatch(actions), commit(mutations) 어떤게 적합할까?
-      // }
-    }
-  },
   methods: {
-    updateSelected(item) {
-      this.$store.dispatch('shop/updateLike', item);
+    updateSelected(id) {
+      this.$store.dispatch('shop/updateLike', id);
     }
   }
 }
