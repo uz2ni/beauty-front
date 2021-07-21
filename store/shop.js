@@ -84,11 +84,13 @@ export const state = () => ({
 })
 
 export const mutations = {
-  fetchLike(state, {id, like}) {
+  fetchLike(state, {id}) {
+    console.log(id);
     const idx = state.shopList.findIndex(shop => (shop.id === id));
     if(idx !== undefined) {
-      state.shopList[idx].like = like;
+      state.shopList[idx].like = !state.shopList[idx].like;
     }
+    console.log(state.shopList);
   }
 }
 

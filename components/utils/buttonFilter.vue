@@ -8,6 +8,7 @@
           active-class="primary--text"
           v-model="tagSelected"
           :multiple="isMultiple"
+          mandatory
         >
           <v-chip
             v-for="(tag, index) in tags"

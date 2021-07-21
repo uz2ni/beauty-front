@@ -63,10 +63,10 @@ export default {
   computed: {
     selected: {
       get: function() {
-        return this.$store.getters['shop/getLikeIndex'];
-      },
+        return this.selected = this.$store.getters['shop/getLikeIndex'];
+      }
       // set: function(shop) {
-      //   this.$store.commit('shop/fetchLike', shop);
+      //   this.selected = this.$store.commit('shop/fetchLike', shop);
       //   // TODO(Question):
       //   // set할 때 dispatch(actions), commit(mutations) 어떤게 적합할까?
       // }
@@ -74,7 +74,6 @@ export default {
   },
   methods: {
     updateSelected(item) {
-      console.log(item);
       this.$store.dispatch('shop/updateLike', item);
     }
   }
