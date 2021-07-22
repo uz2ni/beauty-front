@@ -130,13 +130,18 @@ export default {
           tabs: [
             {
               id: 41,
-              name: '찜한 브랜드',
+              name: '구독 소식',
               route: 'nav4/tab1'
             },
             {
               id: 42,
-              name: '찜한 상품',
+              name: '구독 브랜드',
               route: 'nav4/tab2'
+            },
+            {
+              id: 43,
+              name: '찜 상품',
+              route: 'nav4/tab3'
             }
           ]
         },

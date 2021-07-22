@@ -1,18 +1,10 @@
 <template>
-  <StackList :items="shopLikeList"/>
+  <div>
+    <h4>구독 소식</h4>
+  </div>
 </template>
 <script>
-import StackList from "@/components/grid/stackList";
-import { mapGetters } from 'vuex';
 export default {
-  components: {
-    StackList
-  },
-  computed: {
-    ...mapGetters({
-      shopLikeList: 'shop/getLikeShops'
-    })
-  }
 }
 </script>
 <style scoped>

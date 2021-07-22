@@ -1,18 +1,18 @@
 <template>
   <div>
-    <StackList :items="shopLikeList"/>
+    <CardList :products="ProductLikeList"/>
   </div>
 </template>
 <script>
-import StackList from "@/components/grid/stackList";
+import CardList from "@/components/grid/cardList";
 import { mapGetters } from 'vuex';
 export default {
   components: {
-    StackList
+    CardList
   },
   computed: {
     ...mapGetters({
-      shopLikeList: 'shop/getLikeShops'
+      ProductLikeList: 'product/getLikeProducts'
     })
   }
 }
