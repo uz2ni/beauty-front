@@ -28,8 +28,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      shopAllList: 'shop/getShopAll',
-      shopLikeList: 'shop/getLikeShops'
+      shopAllList: 'shop/getShopAll'
     })
   },
   methods: {

@@ -18,8 +18,9 @@
         >
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn icon @click="updateLike(product.id)">
-              <v-icon :color="likeColor(product.id)">{{ likeToggle(product.id) }}</v-icon>
+            <v-btn icon @click="toggleLike(product.id)">
+              <template v-if="product.like"><v-icon color="primary">mdi-heart</v-icon></template>
+              <template v-else><v-icon color="white">mdi-heart-outline</v-icon></template>
             </v-btn>
           </v-card-actions>
         </v-img>
@@ -38,11 +39,6 @@
 <script>
 export default {
   name: "cardList",
-  data() {
-    return {
-      likeProduct: [1,2] // product id
-    }
-  },
   props: {
     products: Array
   },
@@ -50,18 +46,6 @@ export default {
     cardPadding() {
       return (index) => {
         return (index%2 == 0) ? 'pr-2' : 'pl-2';
-      }
-    },
-    likeColor() {
-      return (id) => {
-        const productId = this.likeProduct.find((value) => value == id);
-        return (productId === undefined) ? 'white' : 'primary';
-      }
-    },
-    likeToggle() {
-      return (id) => {
-        const productId = this.likeProduct.find((value) => value == id);
-        return (productId === undefined) ? 'mdi-heart-outline' : 'mdi-heart';
       }
     }
   },
@@ -74,14 +58,8 @@ export default {
     imgUrlSetting (id) { // 배너 이미지 임시용
       return `/images/banner${id%3+1}.jpg`;
     },
-    updateLike(id) {
-      const productId = this.likeProduct.find((value) => value == id);
-      if(productId === undefined) {
-        this.likeProduct.push(id);
-      }else {
-        const idx = this.likeProduct.indexOf(productId);
-        if (idx > -1) this.likeProduct.splice(idx, 1);
-      }
+    toggleLike(id) {
+      this.$store.dispatch('product/updateLike', id);
     }
   }
 }
@@ -89,7 +67,6 @@ export default {
 
 <style scoped>
 .prd-info-wrap {
-  /*border: 1px solid black;*/
   font-size:0.7rem;
   padding-top: 10px;
 }

@@ -130,7 +130,7 @@ export default {
           tabs: [
             {
               id: 41,
-              name: '내 브랜드',
+              name: '찜한 브랜드',
               route: 'nav4/tab1'
             },
             {
