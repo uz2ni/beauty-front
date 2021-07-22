@@ -1,12 +1,15 @@
 <template>
   <div class="subject-wrap">
-    <h4>BEAUTY</h4>
+    <h4 v-if="subject.length>0">{{ subject }}</h4>
   </div>
 </template>
 
 <script>
 export default {
-  name: "appSubject"
+  name: "appSubject",
+  props: {
+    subject: String
+  }
 }
 </script>
 
@@ -15,6 +18,6 @@ export default {
   display: flex;
   align-items: center;
   color: white;
-  padding: 4px;
+  padding: 7px;
 }
 </style>

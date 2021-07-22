@@ -1,22 +1,9 @@
 <template>
   <div class="tbar-wrap">
-    <AppSubject/>
-    <SearchBar/>
-    <IconBar/>
+    <AppSubject :subject="options.pageName"/>
+    <SearchBar v-if="options.isSearchBar"/>
+    <IconBar :options="options"/>
   </div>
-    <!--<v-row
-      no-gutters
-      class="">
-      <v-col cols="" class="d-flex align-center justify-center">
-        <v-toolbar-title class="text-center" style="color: white;">BEAUTY</v-toolbar-title>
-      </v-col>
-      <v-col cols="" class="d-flex align-center justify-center">
-        <v-toolbar-title class="text-center" style="color: white;">BEAUTY</v-toolbar-title>
-      </v-col>
-      <v-col cols="" class="d-flex align-center justify-center">
-        <v-toolbar-title class="text-center" style="color: white;">BEAUTY</v-toolbar-title>
-      </v-col>
-    </v-row>-->
 </template>
 
 <script>
@@ -28,9 +15,8 @@ export default {
   components: {
     AppSubject, SearchBar, IconBar
   },
-  data() {
-    return {
-    }
+  props: {
+    options: Object
   }
 
 }

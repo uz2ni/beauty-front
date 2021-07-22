@@ -7,10 +7,9 @@
       fixed
       app
     >
-      <TopBar/>
+      <TopBar :options="pageOptions"/>
 
-
-      <template v-slot:extension>
+      <template v-slot:extension v-if="nowTabs.length > 0">
         <v-tabs
           class="tab-menu px-0"
           fixed-tabs
@@ -29,12 +28,6 @@
         <nuxt />
       </v-container>
     </v-main>
-    <!--<v-footer
-      app
-      class="pb-16"
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>-->
 
     <v-bottom-navigation
       fixed
@@ -68,6 +61,11 @@ export default {
           name: '제품별',
           icon: 'mdi-shape',
           route:'nav1/tab1',
+          pageName: '제품 목록',
+          isSearchBar: false,
+          isSearch: true,
+          isShop: true,
+          isNotice: true,
           tabs: [
             {
               id: 11,
@@ -91,33 +89,37 @@ export default {
           name: '브랜드별',
           icon: 'mdi-store',
           route: 'nav2/tab1',
-          tabs: [
-            {
-              id: 21,
-              name: '브랜드 목록',
-              route: 'nav2/tab1'
-            }
-          ]
+          pageName: '브랜드 목록',
+          isSearchBar: false,
+          isSearch: true,
+          isShop: true,
+          isNotice: true,
+          tabs: []
         },
         {
           id: 3,
           name: '홈',
           icon: 'mdi-home',
           route: 'nav3/tab1',
+          pageName: 'BEAUTY',
+          isSearchBar: true,
+          isSearch: false,
+          isShop: true,
+          isNotice: true,
           tabs: [
             {
               id: 31,
-              name: '브랜드 소개',
+              name: '행사',
               route: 'nav3/tab1'
             },
             {
               id: 32,
-              name: '행사',
+              name: '샵',
               route: 'nav3/tab2'
             },
             {
               id: 33,
-              name: '샵',
+              name: '라이브 방송',
               route: 'nav3/tab3'
             }
           ]
@@ -127,6 +129,11 @@ export default {
           name: '구독',
           icon: 'mdi-heart',
           route: 'nav4/tab1',
+          pageName: '구독 목록',
+          isSearchBar: false,
+          isSearch: true,
+          isShop: true,
+          isNotice: true,
           tabs: [
             {
               id: 41,
@@ -150,20 +157,33 @@ export default {
           name: 'MY',
           icon: 'mdi-account-box',
           route: 'nav5/tab1',
-          tabs: [
-            {
-              id: 51,
-              name: '마이페이지',
-              route: 'nav5/tab1'
-            }
-          ]
+          pageName: '마이페이지',
+          isSearchBar: false,
+          isSearch: true,
+          isShop: true,
+          isNotice: true,
+          tabs: []
         }
       ]
     }
   },
   computed: {
+    pageName: function() {
+      return this.gnb.find((value, index) => this.gnbValue == index).pageName;
+    },
     nowTabs: function() {
       return this.gnb.find((value, index) => this.gnbValue == index).tabs;
+    },
+    pageOptions: function () {
+      const page = this.gnb.find((value, index) => this.gnbValue == index);
+      const options = {
+        "pageName": page.pageName,
+        "isSearchBar": page.isSearchBar,
+        "isSearch": page.isSearch,
+        "isShop": page.isShop,
+        "isNotice": page.isNotice
+      };
+      return options;
     }
   },
   methods: {
