@@ -46,6 +46,7 @@
 <script>
 import TopBar from "@/components/topBar";
 export default {
+  name: "default",
   components: {
     TopBar
   },
