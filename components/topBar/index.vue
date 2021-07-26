@@ -1,7 +1,7 @@
 <template>
   <div class="tbar-wrap">
     <AppSubject :subject="options.pageName"/>
-    <SearchBar v-if="options.isSearchBar"/>
+    <SearchBar v-if="options.isSearchBar" @click.native="updateRoute('common/search')"/>
     <IconBar :options="options"/>
   </div>
 </template>
@@ -17,6 +17,11 @@ export default {
   },
   props: {
     options: Object
+  },
+  methods: {
+    updateRoute(path) {
+      this.$router.push({ path: `/${path}` })
+    }
   }
 
 }

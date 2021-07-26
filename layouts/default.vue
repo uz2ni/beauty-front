@@ -17,7 +17,7 @@
           slider-color="white"
           v-model="nowTabs.id"
         >
-          <v-tab v-for="tab in nowTabs" :key="tab.id" @click="updateRoute(tab)" class="white--text">{{ tab.name }}</v-tab>
+          <v-tab v-for="tab in nowTabs" :key="tab.id" @click="updateRoute(tab.route)" class="white--text">{{ tab.name }}</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
@@ -34,7 +34,7 @@
       v-model="gnbValue"
       color="blue darken-4"
     >
-      <v-btn v-for="nav in gnb" :key="nav.id" class="bottom-btn" @click="updateRoute(nav)">
+      <v-btn v-for="nav in gnb" :key="nav.id" class="bottom-btn" @click="updateRoute(nav.route)">
         <span>{{ nav.name }}</span>
         <v-icon>{{ nav.icon }}</v-icon>
       </v-btn>
@@ -188,8 +188,8 @@ export default {
     }
   },
   methods: {
-    updateRoute(nav) {
-      this.$router.push({ path: `/${nav.route}` })
+    updateRoute(path) {
+      this.$router.push({ path: `/${path}` })
     }
   }
 }
