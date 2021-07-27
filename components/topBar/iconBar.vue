@@ -20,7 +20,7 @@ export default {
       alert('장바구니 기능 준비중입니다.');
     },
     updateRoute(path) {
-      this.$router.push({ path: `/${path}` })
+      this.$router.push({ path: `/${path}`, query:{subject: '검색하기'}, props:true })
     }
   }
 }

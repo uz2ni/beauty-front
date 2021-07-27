@@ -1,11 +1,11 @@
 <template>
   <v-row class="msg-stack-wrap">
-    <router-link to="./new" class="r-link">
+    <router-link :to="{ path:stackInfo.routePath, query:{subject: stackInfo.routePageTitle}, props:true }" class="r-link" v-if="stackInfo.routePath!==''">
       <div class="msg-wrap">
-        <h4>신제품 몰아보기 👀</h4>
-        <p class="mb-0">즐겨찾기한 브랜드의 신제품을 확인하세요</p>
+        <h4>{{ stackInfo.title }}</h4>
+        <p class="mb-0">{{ stackInfo.subTitle }}</p>
       </div>
-      <div class="arrow-wrap">
+      <div class="arrow-wrap" v-if="stackInfo.routePath!==''">
         <div>
           <v-icon>mdi-chevron-right</v-icon>
         </div>
@@ -16,7 +16,10 @@
 
 <script>
 export default {
-  name: "messageStack"
+  name: "messageStack",
+  props: {
+    stackInfo: Object
+  }
 }
 </script>
 

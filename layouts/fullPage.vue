@@ -30,14 +30,20 @@ export default {
   },
   data() {
     return {
-      subject: '신제품 몰아보기',
+      subject: '',
       isColor: true
     }
+  },
+  props: {
+    //subject: String
   },
   methods: {
     back() {
       history.back();
     }
+  },
+  created() {
+    this.subject = this.$route.query.subject;
   }
 }
 </script>
