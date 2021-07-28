@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     updateRoute(path) {
-      this.$router.push({ path: `/${path}` })
+      this.$router.push({ path: `/${path}`, query:{subject: '검색하기'}, props:true })
     }
   }
 
