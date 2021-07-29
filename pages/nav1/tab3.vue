@@ -3,7 +3,7 @@
     <MessageStack :stackInfo="stackInfo"/>
     <RowLine/>
     <v-row class="pl-4 pt-4"><h4 class="stack-title">내 취향 브랜드와 비슷한 신제품 💄</h4></v-row>
-    <CardList :products="productList"/>
+    <CardList :products="productList" :options="options"/>
   </div>
 </template>
 
@@ -30,6 +30,9 @@ export default {
         subTitle: "즐겨찾기한 브랜드의 신제품을 확인하세요",
         routePath: "/nav1/new",
         routePageTitle: "신제품 몰아보기"
+      },
+      options: {
+        scrollDirection: "VERTICAL"
       }
     }
   }

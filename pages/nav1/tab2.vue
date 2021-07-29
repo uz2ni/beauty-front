@@ -2,7 +2,7 @@
   <div>
     <ListFilter/>
     <ButtonFilter :tags="tagList" :isMultiple="false"/>
-    <CardList :products="productList"/>
+    <CardList :products="productList" :options="options"/>
   </div>
 </template>
 <script>
@@ -25,7 +25,10 @@ export default {
         '30대',
         '40대',
         '50대'
-      ]
+      ],
+      options: {
+        scrollDirection: "VERTICAL"
+      }
     }
   },
   computed: {

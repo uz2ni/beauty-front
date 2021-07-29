@@ -1,5 +1,5 @@
 <template>
-  <v-row class="pa-2">
+  <v-row class="pa-2" :class="{ 'd-horiz': isHorizontal }">
     <v-col
       v-for="(product, index) in products"
       :key="product.id"
@@ -40,13 +40,17 @@
 export default {
   name: "cardList",
   props: {
-    products: Array
+    products: Array,
+    options: Object
   },
   computed: {
     cardPadding() {
       return (index) => {
         return (index%2 == 0) ? 'pr-2' : 'pl-2';
       }
+    },
+    isHorizontal: function() {
+      if(this.options.scrollDirection === 'HORIZONTAL') return true;
     }
   },
   filters:{
@@ -78,5 +82,9 @@ export default {
   font-weight: bold;
   color: black;
   font-size:0.8rem;
+}
+.d-horiz {
+  flex-wrap: nowrap;
+  overflow-x:scroll;
 }
 </style>

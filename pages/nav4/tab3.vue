@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CardList :products="ProductLikeList"/>
+    <CardList :products="ProductLikeList" :options="options"/>
   </div>
 </template>
 <script>
@@ -14,6 +14,13 @@ export default {
     ...mapGetters({
       ProductLikeList: 'product/getLikeProducts'
     })
+  },
+  data() {
+    return {
+      options: {
+      scrollDirection: "VERTICAL"
+    }
+    }
   }
 }
 </script>
