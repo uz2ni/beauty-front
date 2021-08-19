@@ -19,7 +19,7 @@ export default {
     return {
       options: {
       scrollDirection: "VERTICAL"
-    }
+      }
     }
   }
 }
