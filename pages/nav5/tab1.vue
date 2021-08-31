@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="mb-4">
       <v-card-title>
         <v-avatar size="56">
           <img
@@ -25,9 +25,39 @@
 <!--          >-->
 <!--            팔로잉-->
 <!--          </v-btn>-->
+          <v-btn
+            class="mx-2"
+            fab
+            small
+            color="grey lighten-5"
+            elevation="2"
+          >
+            <v-icon color="gray">
+              mdi-dots-vertical
+            </v-icon>
+          </v-btn>
         </div>
       </v-card-title>
+      <v-card-text>
+        <div>유자로운 이야기 ^=^</div>
+      </v-card-text>
     </div>
+    <v-row class="my-0"><v-divider/></v-row>
+    <v-row class="my-0 profile-summary">
+      <v-col cols="4" class="p-0">
+        <div>게시물</div>
+        <div>100</div>
+      </v-col>
+      <v-col cols="4" class="p-0">
+        <div>팔로워</div>
+        <div>30K</div>
+      </v-col>
+      <v-col cols="4" class="p-0">
+        <div>팔로우</div>
+        <div>10K</div>
+      </v-col>
+    </v-row>
+    <v-row class="my-0"><v-divider/></v-row>
   </div>
 </template>
 
@@ -42,7 +72,7 @@ export default {
   font-size: 1.5rem;
 }
 .profile-id {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: initial;
 }
 ::v-deep .v-card__title {
@@ -55,5 +85,21 @@ export default {
 .follow-wrap {
   position: absolute;
   right: 15px;
+}
+::v-deep .v-card__text {
+  padding: 10px 5px;
+  font-size: 0.9rem;
+  line-height: 0.9rem;
+}
+.profile-summary {
+  text-align: center;
+  font-size: 0.9rem;
+}
+.profile-summary > div > div:nth-child(1) {
+  color: #8e8e8e;
+}
+.profile-summary > div > div:nth-child(2) {
+  color: #262626;
+  font-weight: 500;
 }
 </style>
